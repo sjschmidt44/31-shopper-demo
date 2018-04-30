@@ -14,7 +14,7 @@ install:
 
 script:
   - python shopper/manage.py migrate
-  - coverage run imagersite/manage.py test imagersite
+  - coverage run shopper/manage.py test shopper
 
 after_success:
   - coveralls
