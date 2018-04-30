@@ -8,7 +8,7 @@ def store_view(request):
         return redirect('home')
 
     context = {
-        'products': Product.objects.all(),
+        'products': Product.objects.filter(published='PUBLIC'),
         'cover': settings.STATIC_URL + 'default_cover.thumbnail',
     }
 
