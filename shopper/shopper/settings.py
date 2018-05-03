@@ -26,6 +26,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', None)
 DEBUG = os.environ.get('DEBUG', False)
 
 
+# ALLOWED_HOSTS = []
+# Getting rid of the default
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split()
 
 
@@ -140,5 +142,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'MEDIA')
 # Django Registration Settings
 ACCOUNT_ACTIVATION_DAYS = 1
 LOGIN_REDIRECT_URL = '/'
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'seattle.python.401d8'
+EMAIL_HOST_PASSWORD = 'Ap3x12e4'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
